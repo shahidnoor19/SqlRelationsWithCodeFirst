@@ -21,27 +21,6 @@ namespace learningRelationInEFCore.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("learningRelationInEFCore.Models.Course", b =>
-                {
-                    b.Property<int>("CourseId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CourseId"), 1L, 1);
-
-                    b.Property<string>("CourseName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("CourseId");
-
-                    b.ToTable("Course");
-                });
-
             modelBuilder.Entity("learningRelationInEFCore.Models.Grade", b =>
                 {
                     b.Property<int>("GradeId")
@@ -88,10 +67,7 @@ namespace learningRelationInEFCore.Migrations
             modelBuilder.Entity("learningRelationInEFCore.Models.StudentAddress", b =>
                 {
                     b.Property<int>("StudentAddressId")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("StudentAddressId"), 1L, 1);
 
                     b.Property<string>("Address")
                         .IsRequired()
@@ -109,44 +85,15 @@ namespace learningRelationInEFCore.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("StudentId")
-                        .HasColumnType("int");
-
                     b.HasKey("StudentAddressId");
 
-                    b.HasIndex("StudentId")
-                        .IsUnique();
-
                     b.ToTable("StudentAddress");
-                });
-
-            modelBuilder.Entity("learningRelationInEFCore.Models.StudentCourse", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int>("CourseId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("StudentId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CourseId");
-
-                    b.HasIndex("StudentId");
-
-                    b.ToTable("StudentCourse");
                 });
 
             modelBuilder.Entity("learningRelationInEFCore.Models.Student", b =>
                 {
                     b.HasOne("learningRelationInEFCore.Models.Grade", "Grade")
-                        .WithMany()
+                        .WithMany("Students")
                         .HasForeignKey("GradeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -157,44 +104,17 @@ namespace learningRelationInEFCore.Migrations
             modelBuilder.Entity("learningRelationInEFCore.Models.StudentAddress", b =>
                 {
                     b.HasOne("learningRelationInEFCore.Models.Student", "Student")
-                        .WithOne("Address")
-                        .HasForeignKey("learningRelationInEFCore.Models.StudentAddress", "StudentId")
+                        .WithMany()
+                        .HasForeignKey("StudentAddressId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Student");
                 });
 
-            modelBuilder.Entity("learningRelationInEFCore.Models.StudentCourse", b =>
+            modelBuilder.Entity("learningRelationInEFCore.Models.Grade", b =>
                 {
-                    b.HasOne("learningRelationInEFCore.Models.Course", "Course")
-                        .WithMany("StudentCourses")
-                        .HasForeignKey("CourseId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("learningRelationInEFCore.Models.Student", "Student")
-                        .WithMany("StudentCourses")
-                        .HasForeignKey("StudentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Course");
-
-                    b.Navigation("Student");
-                });
-
-            modelBuilder.Entity("learningRelationInEFCore.Models.Course", b =>
-                {
-                    b.Navigation("StudentCourses");
-                });
-
-            modelBuilder.Entity("learningRelationInEFCore.Models.Student", b =>
-                {
-                    b.Navigation("Address")
-                        .IsRequired();
-
-                    b.Navigation("StudentCourses");
+                    b.Navigation("Students");
                 });
 #pragma warning restore 612, 618
         }

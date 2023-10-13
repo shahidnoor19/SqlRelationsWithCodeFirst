@@ -46,20 +46,18 @@ namespace learningRelationInEFCore.Migrations
                 name: "StudentAddress",
                 columns: table => new
                 {
-                    StudentAddressId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    StudentAddressId = table.Column<int>(type: "int", nullable: false),
                     Address = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     City = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     State = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Country = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    StudentId = table.Column<int>(type: "int", nullable: false)
+                    Country = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_StudentAddress", x => x.StudentAddressId);
                     table.ForeignKey(
-                        name: "FK_StudentAddress_Student_StudentId",
-                        column: x => x.StudentId,
+                        name: "FK_StudentAddress_Student_StudentAddressId",
+                        column: x => x.StudentAddressId,
                         principalTable: "Student",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -69,12 +67,6 @@ namespace learningRelationInEFCore.Migrations
                 name: "IX_Student_GradeId",
                 table: "Student",
                 column: "GradeId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_StudentAddress_StudentId",
-                table: "StudentAddress",
-                column: "StudentId",
-                unique: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

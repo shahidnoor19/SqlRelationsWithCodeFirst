@@ -2226,24 +2226,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\123\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Shahid Noor\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Firebase\\learningRelationInEFCore\\learningRelationInEFCore\\learningRelationInEFCore.csproj",
+      "projectUniqueName": "D:\\Dotnet Practice\\Relation\\SqlRelationsWithCodeFirst\\learningRelationInEFCore.csproj",
       "projectName": "learningRelationInEFCore",
-      "projectPath": "E:\\Firebase\\learningRelationInEFCore\\learningRelationInEFCore\\learningRelationInEFCore.csproj",
-      "packagesPath": "C:\\Users\\123\\.nuget\\packages\\",
-      "outputPath": "E:\\Firebase\\learningRelationInEFCore\\learningRelationInEFCore\\obj\\",
+      "projectPath": "D:\\Dotnet Practice\\Relation\\SqlRelationsWithCodeFirst\\learningRelationInEFCore.csproj",
+      "packagesPath": "C:\\Users\\Shahid Noor\\.nuget\\packages\\",
+      "outputPath": "D:\\Dotnet Practice\\Relation\\SqlRelationsWithCodeFirst\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\123\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\Shahid Noor\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -2251,7 +2246,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -2308,7 +2302,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }
